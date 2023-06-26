@@ -2,7 +2,7 @@
 pipeline {
     environment {
         registry = "nithishnithi/rps-ant"
-        registryCredentials = 'docker-credential'
+        registryCredential = 'docker-credential'
     }
     agent any
     stages {
