@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone the Git Repository') {
             steps {
-                git credentialsId: 'git-credentials', url: 'https://github.com/9538541430/rps-ant.git'
+                git credentialsId: 'git-credential', url: 'https://github.com/9538541430/rps-ant.git'
             }
         }
         stage('Building docker image') {
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh 'echo Registry-push'
                 script {
-                    docker.withRegistry('', registryCredentials) {
+                    docker.withRegistry('', registryCredential) {
                         image.push()
                         image.push('latest')
                     }
